@@ -1,3 +1,6 @@
 <p class="text-purple-800"><%= @article.name %></p>
 <br/>
 <p><%= @article.body %></p>
+<br/>
+<p> <%= link_to "Edit", edit_article_path(@article) %> </p>
+<p> <%= button_to "Delete", article_path(@article), method: :delete %> </p>

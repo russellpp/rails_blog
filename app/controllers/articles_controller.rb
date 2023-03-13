@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(params.require(:article).permit(:name, :body))
-            redirect_to article_url(@article)
+            redirect_to article_path(@article)
         else
             render :edit, status: :unprocessable_entity
         end
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     def destroy
         @article = Article.find(params[:id])
         @article.destroy
-        redirect_to articles_url
+        redirect_to articles_path
     end
 
     private

@@ -3,6 +3,11 @@ class ArticlesController < ApplicationController
         @articles = Article.all
         render :index
     end
+    
+    def home
+        @articles = Article.all
+        render :home
+    end
 
     def show
         @article = Article.find(params[:id])

@@ -1,28 +1,29 @@
-<p>
 
 <%= form_with  model: @article, local: true do |f| %>
-    <p>
-        <% if @article.errors.any? %>
-            <ul>
-                <% @article.errors.full_messages.each do |err| %>
-                    <li><%= err %></li>
-                <% end %>
-            </ul>
-        <% end %>
-    </p>
+    <div class="flex flex-col">
+        <div>
+            <% if @article.errors.any? %>
+                <ul class="mb-10">
+                    <li class="text-red-600 font-bold uppercase text-2xl mb-5"> Error Creating Article</li>
+                    <% @article.errors.full_messages.each do |err| %>
+                        <li class="text-red-600 font-bold"><%= err %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
 
-    <p>
-        <%= f.label "Article Title" %>
-        <%= f.text_field :name %>
-    </p>
+        <div class="flex flex-col mb-10">
+            <%= f.label "Article Title", class: "mb-2" %>
+            <%= f.text_field :name, class: "bg-gray-200 appearance-none border-b-2 rounded w-[800px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+        </div>
 
-    <p>
-        <%= f.label :body %>
-        <%= f.text_area :body %>
-    </p>
+        <div class="flex flex-col">
+            <%= f.label :body, class:"mb-2" %>
+            <%= f.text_area :body, class: "bg-gray-200 appearance-none border-b-2 rounded w-[800px] min-h-[200px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" %>
+        </div>
 
-<%= f.submit %>
+        <div class="mt-5"><%= f.submit class: "hover:text-green-600 font-bold font-sans hover:cursor-pointer", value: @article.id? ? "Edit Post" : "Create Post" %></div>
+    </div>
+
 
 <% end %>
-
-</p>

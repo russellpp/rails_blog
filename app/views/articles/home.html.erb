@@ -1,0 +1,11 @@
+
+<div class="flex flex-col">
+    <h1 class="text-7xl font-mono font-bold underline mb-[30px]">Blog's Blog</h1>
+    <h1 class="text-xl font-mono font-bold ml-3 mb-[30px]">A blog that blogs</h1>
+    <div class="flex flex-col-reverse">
+        <% @articles.each do |article| %>
+                <%= render article %>
+        <% end %>
+    </div>
+    <h1 class="text-xl font-mono font-bold mt-[50px] mb-5">Created by R.R.Palmejar</h1>
+</div>
